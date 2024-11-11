@@ -1,1 +1,2 @@
 # leetcode
+i try, okay? ;----;
