@@ -4,14 +4,14 @@
 class Solution:
     def firstBadVersion(self, n: int) -> int:
         start, end = 1, n
-
-        while start < end:
+        ans = 0
+        while start <= end:
             check = (start + end) // 2
-        
-            if isBadVersion(check) == False:
+            val = isBadVersion(check)
+            if val == False:
+                ans = check 
                 start = check + 1
-            
             else:
-                end = check
+                end = check - 1
 
-        return start
+        return ans
