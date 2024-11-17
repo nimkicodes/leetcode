@@ -5,6 +5,7 @@ class Solution:
         left, right = 0, len(nums)-1
         index = len(nums)-1
         sorted_squares = [0] * len(nums)
+        # sorted_squares = [ 0 for x in range(len(nums)) ] another way
         
         while left <= right:
             if abs(nums[left]) > abs(nums[right]):
@@ -25,3 +26,7 @@ class Solution:
         #     sorted_squares.append(nums[i]*nums[i])
         
         # return sorted_squares
+
+        # for x in nums:
+        #     sorted_squares.append(x * x)
+        # sorted_squares.sort()
