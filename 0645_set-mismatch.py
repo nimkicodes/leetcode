@@ -1,9 +1,5 @@
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-        nums_set = set(nums)
-        full_set = set([x for x in range(1, len(nums)+1)])
-        missing = list(full_set - nums_set).pop()
-
         dict_set = {}
 
         for x in nums:
@@ -11,7 +7,11 @@ class Solution:
                 dict_set[x] += 1
             else:
                 dict_set[x] = 1
-
-        for k in dict_set.keys():
-            if dict_set[k] == 2:
-                return [k, missing]
+        
+        for y in range(1, len(nums)+1):
+            if y not in dict_set:
+                missing = y
+            elif dict_set[y] == 2:
+                duplicate = y
+        
+        return [duplicate, missing]
