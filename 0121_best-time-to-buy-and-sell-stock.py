@@ -1,13 +1,17 @@
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-        existence = {}
+    def maxProfit(self, prices: List[int]) -> int:
+        
+        # bruteforce, O(n2) time
+        # constraint = (10^5)^2 -> 10^10 which is > 5x10^8, it gives TLE
 
-        for x in nums:
-            if x in existence:
-                existence[x] += 1
-            else:
-                existence[x] = 1
+        profit = 0
+        
+        for i in range(len(prices)):
+            for j in range(i+1, len(prices)):
+                if prices[j] - prices[i] > profit:
+                    profit = prices[j] - prices[i]
 
-        for y in nums:
-            if existence[y] > (len(nums)//2):
-                return y
+        if profit >= 0:
+            return profit
+        else:
+            return 0
