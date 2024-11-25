@@ -5,10 +5,4 @@ class Solution:
         """
         # to handle cases where k > len(nums)
         k = k % len(nums)
-
-        rotated = []
-        rotated = nums[-k:] + nums[:-k]
-        
-        nums.clear()
-        for i in range(len(rotated)):
-            nums.append(rotated[i])
+        nums[:] = nums[-k:] + nums[:-k]
