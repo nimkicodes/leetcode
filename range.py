@@ -2,6 +2,7 @@ nums = [1,5,10]
 for i in range(len(nums)):
     print(i, nums[i])
 
+# can be used when both index and value are needed
 for i, v in enumerate(nums):
     print(i,v)
 
