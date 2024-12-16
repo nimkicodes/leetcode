@@ -1,14 +1,14 @@
 class Solution:
     def restoreString(self, s: str, indices: List[int]) -> str:
-        tuple_map = []
-        
-        for i in range(len(s)):
-            tuple_map.append((indices[i], s[i]))
+        tuple_list = []
+        for char, index in zip(s, indices):
+            tuple_list.append((index, char))
 
-        tuple_map.sort()
-        
-        result = ""
-        for i in range(len(s)):
-            result += tuple_map[i][1]
-        
-        return result   
+        tuple_list.sort()
+
+        answer = []
+        for _, char in tuple_list:
+            answer.append(char)
+
+        return "".join(answer)
+        # return "".join([ char for _, char in tuple_list])
