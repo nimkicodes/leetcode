@@ -4,7 +4,7 @@ class Solution:
         students.sort()
 
         moves = 0
-        for i in range(len(seats)):
-            moves += abs(seats[i]-students[i])
+        for seat, student in zip(seats, students):
+            moves += abs(seat-student)
         
         return moves
