@@ -1,8 +1,15 @@
 class Solution:
     def kItemsWithMaximumSum(self, numOnes: int, numZeros: int, numNegOnes: int, k: int) -> int:
-        items = [1] * numOnes + [0] * numZeros + [-1] * numNegOnes
+        if k <= numOnes:
+            return k
+        elif k <= numZeros + numOnes:
+            return numOnes 
+        elif k > numZeros + numOnes:
+            return numOnes - (k - numOnes - numZeros)
     
-        result = 0
-        for item in range(k):
-            result += items[item]
-        return result
+        # items = [1] * numOnes + [0] * numZeros + [-1] * numNegOnes
+    
+        # result = 0
+        # for item in range(k):
+        #     result += items[item]
+        # return result
