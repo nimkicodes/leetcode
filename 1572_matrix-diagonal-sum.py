@@ -4,10 +4,6 @@ class Solution:
         result = 0
         
         for i in range(n):
-            result += mat[i][i] 
-            result += mat[n-1-i][i]
+            result += mat[i][i] + mat[n-1-i][i]
         
-        if n % 2 != 0:
-            result -= mat[n//2][n//2]
-        
-        return result
+        return result if n%2 == 0 else result - mat[n//2][n//2]
