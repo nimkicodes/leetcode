@@ -12,10 +12,12 @@ class TrieNode:
             node = node.children[char]
         node.isEndOfWord = True
 
-    def findPrefix(self, prefix):
-        node = self
-        for char in prefix:
+    def findLengthOfPrefix(self, word):
+        node = self #root
+        prefix = 0
+        for char in word:
             if char not in node.children:
-                return None
+                return prefix
+            prefix += 1
             node = node.children[char]
-        return node
+        return prefix
