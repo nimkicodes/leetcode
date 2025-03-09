@@ -30,7 +30,7 @@ class Solution:
         #     return 1
 
         # for num in range(1, maximum+1):
-        #     if num != nums[num]:
+        #     if num not in nums:
         #         return num
         #     else:
         #         continue
