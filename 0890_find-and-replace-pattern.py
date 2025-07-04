@@ -1,21 +1,22 @@
 class Solution:
     def findAndReplacePattern(self, words: List[str], pattern: str) -> List[str]:
-        def mapping(words):
-            mapping = {}
-            code = []
+        def matching(word, pattern):
+            if len(word) != len(pattern):
+                return False
 
-            for i, char in enumerate(words):
-                if char not in mapping:
-                    mapping[char] = len(mapping)
-                code.append(mapping[char])
-            
-            return code
-        
-        pattern_code = mapping(pattern)
-        result = []
+            w_map, p_map = {}, {}
 
-        for word in words:
-            if mapping(word) == pattern_code:
-                result.append(word)
+            for w, p in zip(word, pattern):
+                if w not in w_map:
+                    w_map[w] = p
+                elif w_map[w] != p:
+                    return False
 
-        return result
+                if p not in p_map:
+                    p_map[p] = w
+                elif p_map[p] != w:
+                    return False
+
+            return True
+
+        return [word for word in words if matching(word, pattern)]
