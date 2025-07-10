@@ -1,14 +1,22 @@
 class Solution:
-    def wordPattern(self, pattern: str, s: str) -> bool:
-        words, mapping = s.split(' '), dict()
-
-        if len(set(pattern)) != len(set(words)):
-            return False
-
-        for i in range(len(words)):
-            if words[i] not in mapping:
-                mapping[words[i]] = pattern[i]
-            elif mapping[words[i]] != pattern[i]:
+    def wordPattern(self, pattern, s):
+        def matching(word, pattern):
+            if len(word) != len(pattern):
                 return False
-    
-        return True
+
+            w_map, p_map = {}, {}
+
+            for w, p in zip(word, pattern):
+                if w not in w_map:
+                    w_map[w] = p
+                elif w_map[w] != p:
+                    return False
+
+                if p not in p_map:
+                    p_map[p] = w
+                elif p_map[p] != w:
+                    return False
+
+            return True
+
+        return matching(s.split(), pattern)
