@@ -1,9 +1,5 @@
-class Solution(object):
-    def firstUniqChar(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
         check = Counter(s)
 
         for i in range(len(s)):
